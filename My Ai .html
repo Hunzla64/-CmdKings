@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Interactive Robot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link id="theme-style" rel="stylesheet" href="Style1.css">
+    <script src="script.js"></script>
+    <script src="myjava.js"></script>
+        
+    </link>
+<link rel="icon" href="Capture.PNG">
+
+</head>
+<body>
+    <div id="mydiv">
+    <h1><span class="rainbow-text">Ultimate Interactive Robot</span></h1>
+    <div class="controls">
+        <button id="dance1-btn">Dance Step 1</button>
+        <button id="dance2-btn">Dance Step 2</button>
+        <button id="dance3-btn">Dance Step 3</button>
+        <button id="talk-btn"> Talk</button>
+        <button id="color-btn">Change Color</button>
+        <button id="happy-btn">Happy</button>
+        <button id="sad-btn">Sad</button>
+        <button id="sleep-btn">Sleep</button>
+        <button id="jump-btn">Jump</button>
+        <button id="spin-btn">Spin</button>
+        <button id="float-btn">Float</button>
+        <button id="celebrate-btn" class="special-btn">Celebrate!</button>
+        <button id="reset-btn">Reset</button>
+    </div>
+    </div>
+    <div class="container">
+        
+        
+        <div class="robot-container">
+            <div class="robot" id="robot">
+                <div class="head">
+                    <div class="eye left-eye"></div>
+                    <div class="eye right-eye"></div>
+                    <div class="mouth"></div>
+                    <div class="antenna"></div>
+                    <DIV class="here-left"></DIV>
+                    <div class="here-right"></div>
+                </div>
+                <div class="body">
+                    <div class="panel">
+                        <div class="button red" id="red-btn"></div>
+                        <div class="button blue" id="blue-btn"></div>
+                        <div class="button green" id="green-btn"></div>
+                    </div>
+                    <div class="arm left-arm"></div>
+                    <div class="arm right-arm"></div>
+                </div>
+                <div class="legs">
+                    <div class="leg left-leg"></div>
+                    <div class="leg right-leg"></div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="chat-box" id="chat-box">
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input-container">
+                <div class="rebot-head">
+                    <div class="eya left-eya"></div>
+                    <div class="eya right-eya"></div>
+                    <div class="rebot-mouth"></div>
+                    <div class="rebot-antenna"></div>
+                    <DIV class="rebot-here-left"></DIV>
+                    <div class="rebot-here-right"></div>
+                </div>
+                <input type="text" id="user-input" placeholder="Massage Ultimate Interactive Robot">
+                <button id="send-btn"><i class="fas fa-paper-plane"></i> Send</button>
+            </div>
+        </div>
+    </div>
+    <button id="themeBtn" class="icon">Hack Mood</button>
+    
+    <script>
+        const themeStyle = document.getElementById('theme-style');
+        const themeBtn = document.getElementById('themeBtn');
+        
+        function toggleTheme() {
+            if(themeStyle.href.includes('Style2.css')) {
+                themeStyle.href = 'Style1.css';
+                themeBtn.textContent = 'Hack Mood';
+                localStorage.setItem('theme', 'style2');
+            } else {
+                themeStyle.href = 'Style2.css';
+                themeBtn.textContent = 'Hack Mood';
+                localStorage.setItem('theme', 'style1');
+            }
+        }
+
+        // Apply saved theme on load
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if(savedTheme === 'style1') {
+                themeStyle.href = 'Style2.css';
+                themeBtn.textContent = 'Hack Mood';
+            }
+        };
+
+        themeBtn.addEventListener('click', toggleTheme);
+    </script>
+   
+
+    <script>
+        const ThemeBtn = document.getElementById('themeBtn');
+        
+        ThemeBtn.addEventListener('click', toggleFullscreen);
+        
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
